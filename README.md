@@ -13,17 +13,18 @@ CodeGenerator.cs:
   * DisplayCodes()
 
 CodeValidator.cs:
-  * public ValidateCoupons()
-  * ValidateCodes()
+  * public ValidateCoupon()
+  * Validate() 
+  * ValidateCode()
+  * class Code
 
 Configurator.cs
   * AppSettings["CharacterSet"]
   * AppSettings["Generations"]
 ```
-## Code Generator
-> Main generation class. Since we are not allowed to store codes (coupons), we display codes via seperated method by recreating them.
 
-
+## Generator & Validator
+> Generator: Main generation class. Since we are not allowed to store codes (coupons), we display codes via seperated method by recreating them.
 ```
 <uses CharacterSet>
 public class CodeGenerator: 
@@ -31,8 +32,15 @@ public class CodeGenerator:
   * public static void DisplayCoupons() - password, code number
   * static string[] GenerateCodes() - System.Random, code number, [code length]
   * static void DisplayCodes() - System.Random, code number, [code length]
-```
 
+<uses CharacterSet>
+public class CodeValidator: 
+* public static string ValidateCoupon() - password, code, code number 
+* static Code? Validate() - password, code, code number 
+* static Code? ValidateCode() - System.Random, code, code number, [code length]
+public class Code:
+
+```	
 
 - password: Password (seed) for code validation. It basically an integer number, Max range is 2^32 and max value is 2,147,483,647.
 - code number: How much code do you want to generate.
@@ -46,9 +54,7 @@ public class CodeGenerator:
 > 
 > ~78 billion / ~1 million = 78000. Which is 78000 different campaings, each time unique 1 million codes.
 
-
-	
-
+- code: Generated code to be validated.
 
 ## Configurator
 > I don't like pushing config files to the GitHub.
