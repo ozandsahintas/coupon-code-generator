@@ -1,7 +1,27 @@
 # coupon-code-generator
-A simple coupon code generator.
 
-~ Code Spectrum ~ 
+
+## Setup
+
+``` make setup ``` sets up the project and make it ready to ```make run```, ```make pack``` for NuGet package.
+
+* ``` make setup ```  builds the project and creates a ```Coupon_Export``` folder.
+* ``` make run ``` will run ```Coupon_Export/CouponCodeGenerator.exe```
+
+```
+Password:
+XXXXXXXXXX
+Select an operation.
+
+ 1 - Generation
+ 2 - Validation
+ 0 - Exit
+```
+
+* Enter your password and select operation.
+
+
+## Code Spectrum  
 
 ```Csharp
 Program.cs: Main entry point.
@@ -23,7 +43,7 @@ Configurator.cs
   * AppSettings["Generations"]
 ```
 
-## Generator & Validator
+### Generator & Validator
 > Generator: Main generation class. Since we are not allowed to store codes (coupons), we display codes via seperated method by recreating them.
 ```
 <uses CharacterSet>
@@ -56,7 +76,7 @@ public class Code:
 
 - code: Generated code to be validated.
 
-## Configurator
+### Configurator
 > I don't like pushing config files to the GitHub.
 
 Here is the simple App.config file, there is also an App.config file in the project with empty values.
