@@ -399,3 +399,7 @@ FodyWeavers.xsd
 
 # AppConfig
 *.config
+
+# Pack and Export
+*_Export/*
+*_Pack/*
